@@ -1,13 +1,21 @@
 import React from 'react';
 import {Link, NavLink, Outlet} from "react-router-dom";
-import {Avatar, Badge, Dropdown, Space} from "antd";
-import useCategories from "../../hooks/useCategories";
-import Search from "../../components/Search";
 import {useCart} from "../../context/cart";
 import {useAuth} from "../../context/AuthProvider";
 import {sessionRemove} from "../../helpers/sessionHelper";
-import {DownOutlined, KeyOutlined, UploadOutlined, UserOutlined} from "@ant-design/icons";
-import SiteHeader from "./SiteHeader";
+import {
+    AntDesignOutlined,
+    DashboardOutlined,
+    FormOutlined,
+    KeyOutlined, OrderedListOutlined,
+    UploadOutlined,
+    UserOutlined
+} from "@ant-design/icons";
+import AppHeader from "../admin/AppHeader";
+import {Breadcrumb, Layout} from "antd";
+import SideMenuBar from "../admin/SideMenuBar";
+import AppFooter from "../admin/AppFooter";
+import {Content} from "antd/es/layout/layout";
 
 
 
@@ -23,60 +31,55 @@ const Main = () => {
 
     const items = [
         {
-            key: '1',
-            label: (
-                <Link to='/customer/profile'>
-                    Profile
-                </Link>
-            ),
-            icon: <UserOutlined />
+            key: 'admin',
+            label:  <NavLink to='/admin'>Dashboard</NavLink>,
+            icon: <DashboardOutlined />
         },
         {
-            key: '2',
-            label: (
-                <Link to='/customer/orders'>
-                    Orders
-                </Link>
-            ),
-            icon: <UserOutlined />
-        },
-        {
-            key: '3',
-            label: (
-                <Link to='/customer/change-password'>
-                    Change Password
-                </Link>
-            ),
-            icon: <KeyOutlined rotate={-130} />
-        },
-        {
-            key: '4',
-            label: (
-                <a href='/' onClick={logout} >
-                    Log Out
-                </a>
-            ),
-            icon: <UploadOutlined rotate={90} />
+            key: 'vendor',
+            label:  'Vendor',
+            icon: <AntDesignOutlined />,
+            children: [
+                {
+                    key: '/admin/vendor-create',
+                    label:  <NavLink to='/admin/vendor-create'>Create</NavLink>,
+                    icon: <FormOutlined />,
+                },
+                {
+                    key: '/admin/vendor-list',
+                    label:  <NavLink to='/admin/vendor-list'>List</NavLink>,
+                    icon: <OrderedListOutlined />,
+                },
+                {
+                    key: '/admin/vendor-esim-list',
+                    label:  <NavLink to='/admin/vendor-esim-list'>eSIM List</NavLink>,
+                    icon: <OrderedListOutlined />,
+                }
+            ]
         }
-    ];
+    ]
 
     return (
         <>
-           <header>
-                <SiteHeader/>
-           </header>
+            <Layout
+                style={{
+                    minHeight: '100vh',
+                }}
+            >
+                <SideMenuBar items={items} />
+                <Layout className="site-layout">
+                    <AppHeader/>
+                    <Content
+                        style={{
+                            margin: '0 16px',
+                        }}
 
-            <section>
-                <div className="container">
-                    <div className="categories my-3">
-                    </div>
-                </div>
-
-
-            </section>
-            <div className="container">
-                <Outlet/>
-            </div>
+                    >
+                        <Outlet />
+                    </Content>
+                    <AppFooter/>
+                </Layout>
+            </Layout>
         </>
     );
 };
