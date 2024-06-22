@@ -15,6 +15,7 @@ import UpdatePasswordPage from "../pages/auth/UpdatePasswordPage";
 import SuperAdminRoute from "./superAdminRoute";
 import UserDashboardPage from "../pages/dashboard/UserDashboard-page";
 import VendorEsimList from "../components/vendor/VendorEsimList";
+import UserMain from "../layouts/UserMain";
 
 const router = createBrowserRouter([
 
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <Main/>,
+        element: <UserMain/>,
         children: [
             {
                 path: '/',

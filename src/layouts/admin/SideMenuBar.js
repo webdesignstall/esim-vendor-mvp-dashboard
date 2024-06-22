@@ -8,37 +8,9 @@ import {
 
 const { Sider } = Layout;
 
-const items = [
-    {
-        key: 'admin',
-        label:  <NavLink to='/admin'>Dashboard</NavLink>,
-        icon: <DashboardOutlined />
-    },
-    {
-        key: 'vendor',
-        label:  'Vendor',
-        icon: <AntDesignOutlined />,
-        children: [
-            {
-                key: '/admin/vendor-create',
-                label:  <NavLink to='/admin/vendor-create'>Create</NavLink>,
-                icon: <FormOutlined />,
-            },
-            {
-                key: '/admin/vendor-list',
-                label:  <NavLink to='/admin/vendor-list'>List</NavLink>,
-                icon: <OrderedListOutlined />,
-            },
-            {
-                key: '/admin/vendor-esim-list',
-                label:  <NavLink to='/admin/vendor-esim-list'>eSIM List</NavLink>,
-                icon: <OrderedListOutlined />,
-            }
-        ]
-    }
-]
 
-const SideMenuBar = () => {
+
+const SideMenuBar = ({items}) => {
     const [collapsed, setCollapsed] = useState(false);
 
     return (
