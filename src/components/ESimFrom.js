@@ -40,7 +40,7 @@ const ESIMForm = () => {
                     <Input size={`large`} />
                 </Item>
                 <Item label="Authentication Key (Ki)" name="ki" >
-                    <Input.Password size={`large`} />
+                    <Input size={`large`} />
                 </Item>
 
                 <Item label="ICCID" name="iccid" >
@@ -53,26 +53,36 @@ const ESIMForm = () => {
                <Item label="APN" name={['operatorSpecificData', 'apn']} >
                    <Input size={`large`} />
                </Item>
-               <Item label="MNC" name={['operatorSpecificData', 'mnc']} >
+               <Item label="Network Selection Mode" name={['operatorSpecificData', 'settings', 'networkSelectionMode']} >
+                   <Input size={`large`} />
+               </Item>
+
+               <Item label="Preferred Network" name={['operatorSpecificData', 'settings', 'preferredNetwork']} >
                    <Input size={`large`} />
                </Item>
            </Card>
 
             <Card style={{marginBottom: '20px'}} title={`Cryptographic Information`}>
-                <Item label="Public Key" name={['cryptographicInformation', 'publicKey']} >
+                <Item label="Security Key" name={['cryptographicInformation', 'securityKeys']} >
                     <Input size={`large`} />
                 </Item>
-                <Item label="Private Key" name={['cryptographicInformation', 'privateKey']} >
-                    <Input.Password size={`large`} />
+                <Item label="Certificate" name={['cryptographicInformation', 'certificates']} >
+                    <Input size={`large`} />
                 </Item>
             </Card>
 
             <Card style={{marginBottom: '20px'}} title={`Subscription Information`}>
-                <Item label="Data Allowances (MB)" name={['subscriptionInformation', 'dataAllowances']} >
-                    <InputNumber size={`large`} min={0} />
+                <Item label="Plan" name={['subscriptionInformation', 'plan']} >
+                    <Input size={`large`} />
                 </Item>
-                <Item label="Voice Minute Quotas" name={['subscriptionInformation', 'voiceMinuteQuotas']} >
-                    <InputNumber size={`large`} min={0} />
+                <Item label="Data Allowance (MB)" name={['subscriptionInformation', 'dataAllowance']} >
+                    <Input size={`large`} />
+                </Item>
+                <Item label="Voice Minute" name={['subscriptionInformation', 'voiceMinutes']} >
+                    <Input size={`large`} />
+                </Item>
+                <Item label="SMS" name={['subscriptionInformation', 'sms']} >
+                    <Input size={`large`} />
                 </Item>
             </Card>
 
@@ -89,11 +99,8 @@ const ESIMForm = () => {
                     />
                 </Item>
 
-                <Item label="Roaming Allowed" name={['networksAndRoamingPreferences', 'roamingSettings', 'roamingAllowed']} >
+                <Item label="Roaming" name={['networksAndRoamingPreferences', 'roaming']} >
                     <Input size={`large`} />
-                </Item>
-                <Item label="Roaming Cost" name={['networksAndRoamingPreferences', 'roamingSettings', 'roamingCost']}>
-                    <InputNumber size={`large`} min={0} />
                 </Item>
 
             </Card>
