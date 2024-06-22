@@ -67,8 +67,6 @@ const AppHeader = () => {
             >
                 <Row>
                     <Col span={22}>
-                        <Link to='/' className='pl-2'>Visit Site</Link>
-
                     </Col>
                     <Col span={2}>
                         <Avatar
