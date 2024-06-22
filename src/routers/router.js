@@ -16,6 +16,9 @@ import SuperAdminRoute from "./superAdminRoute";
 import UserDashboardPage from "../pages/dashboard/UserDashboard-page";
 import VendorEsimList from "../components/vendor/VendorEsimList";
 import UserMain from "../layouts/UserMain";
+import ESIMCatalog from "../pages/dashboard/ESIMCatalog";
+import ESIM from "../pages/dashboard/ESIM";
+import ESIMOrder from "../pages/dashboard/ESIMOrder";
 
 const router = createBrowserRouter([
 
@@ -84,6 +87,18 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <UserDashboardPage/>
+            },
+            {
+                path: '/vendor/esim-catalog',
+                element: <ESIMCatalog/>
+            },
+            {
+                path: '/vendor/esim',
+                element: <ESIM/>
+            },
+            {
+                path: '/vendor/orders',
+                element: <ESIMOrder/>
             },
             {
                 path: '/vendor/profile',
