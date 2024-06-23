@@ -23,7 +23,7 @@ const HomePage = () => {
             <Row gutter={[32, 32]} className='d-flex justify-content-center'>
 
                 {
-                    eSimCatalogs?.map((esimCatalog) => (
+                    eSimCatalogs?.map((esimCatalog, index) => (
                         <Col span={8}>
                             <Card className='d-flex justify-content-center flex-wrap'>
                                 <div className='text-center'>
@@ -46,7 +46,7 @@ const HomePage = () => {
                                     <h5 className='fw-bold mt-3'>Company: {esimCatalog?.company}</h5>
                                     <h5 className='fw-bold mt-3'>Coverage: { esimCatalog?.coverage }</h5>
                                     <h5 className='fw-bold mt-3'>Country: {esimCatalog?.country}</h5>
-                                    <Link to={`/online-order/${esimCatalog?._id}`}>
+                                    <Link to={`/online-order/${esimCatalog?._id}?index=${index}`}>
                                         <button className='btn btn-outline-info mt-3'>Online Order</button>
                                     </Link>
 

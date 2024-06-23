@@ -66,7 +66,7 @@ const AdminMain = () => {
                     >
                            <Outlet />
                     </Content>
-                    <AppFooter/>
+
                 </Layout>
             </Layout>
         </>

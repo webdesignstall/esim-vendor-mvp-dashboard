@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, useSearchParams} from "react-router-dom";
 import axios from "axios";
 import {Card, Radio} from "antd";
 
 const Checkout = () => {
 
     const {id} = useParams();
+    const [searchParams] = useSearchParams();
+
+    const index = searchParams.get('index');
 
     const [catalog, setCatalog] = useState({})
 
@@ -25,12 +28,25 @@ const Checkout = () => {
                 <div className='text-center'>
                     <p>You are ordering</p>
                     <h3 className='text-center'>{catalog?.title}</h3>
-                    <div className='border-1 p-5' style={{border: '1px solid gray'}}>
-                        <p>Select Number</p>
-                        <Radio.Group options={catalog?.availableNumbers} size={'large'} style={{display: 'block'}} />
+                    <h4 className='text-center'>$ {catalog?.price}</h4>
 
-                        <button className='mt-5 btn btn-primary w-100'>Add to cart</button>
-                    </div>
+
+                    {
+                        index == 0 ?
+                            <div className='border-1 p-5' style={{border: '1px solid gray'}}>
+
+                                (<>
+                                <p>Select Number</p>
+                                <Radio.Group options={catalog?.availableNumbers} size={'large'}
+                                             style={{display: 'block'}}/>
+                            </>
+                                )
+
+                                <button className='mt-5 btn btn-primary w-100'>Add to cart</button>
+                            </div> :
+                            <button className='mt-5 btn btn-primary w-100'>Add to cart</button>
+                    }
+
                 </div>
 
 

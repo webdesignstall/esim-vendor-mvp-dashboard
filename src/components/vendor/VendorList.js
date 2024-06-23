@@ -5,6 +5,8 @@ import Highlighter from 'react-highlight-words';
 import {deletePostRequest} from "../../APIRequest/productApi";
 import {useNavigate} from "react-router-dom";
 import {vendors} from "../../APIRequest/userApi";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const PostList = () => {
 
@@ -93,16 +95,18 @@ const PostList = () => {
             }
         })
     }
-    const handleDelete = (id)=>{
+    const handleDelete = async (id)=>{
         const result = window.confirm('Are you sure delete!');
         if (result){
             setLoading(true)
-            deletePostRequest(id).then(res => {
-                setLoading(false)
-                if (res){
-                    getPosts()
-                }
-            })
+
+            const {data} = await axios.delete(`/vendor/${id}`);
+
+            if (data.vendor.deletedCount > 0){
+                toast.success('Vendor delete success')
+            }
+            getPosts()
+            setLoading(false)
         }
     }
 
@@ -212,21 +216,38 @@ const PostList = () => {
 
     const columns = [
         {
-            name: 'Name',
-            dataIndex: 'firstName',
+            title: 'Name',
+            dataIndex: 'name',
             width: '20%',
-            ...getColumnSearchProps('firstName'),
-            render: (_, data) => `${data?.firstName?.toUpperCase()} ${data?.lastName?.toUpperCase()}`
+            ...getColumnSearchProps('name'),
         },
         {
-            price: 'Email',
+            title: 'Email',
             dataIndex: 'email',
             width: '20%',
             ...getColumnSearchProps('price'),
         },
+        {
+            title: 'Contact No',
+            dataIndex: 'contact',
+            width: '20%',
+            ...getColumnSearchProps('contact'),
+        },
+        {
+            title: 'Website Url',
+            dataIndex: 'website',
+            width: '20%',
+            ...getColumnSearchProps('website'),
+        },
+        {
+            title: 'Head Office',
+            dataIndex: 'headOffice',
+            width: '20%',
+            ...getColumnSearchProps('headOffice'),
+        },
 
         {
-            sold: 'Status',
+            title: 'Status',
             dataIndex: 'status',
         },
 

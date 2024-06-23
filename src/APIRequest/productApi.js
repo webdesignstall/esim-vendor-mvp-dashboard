@@ -122,10 +122,10 @@ export const getAuthPostsRequest = async ()=>{
 
 export const deletePostRequest = async (id)=>{
     try {
-        const {data} = await axios.delete(`/posts/${id}`);
+        const {data} = await axios.delete(`/vendor/${id}`);
 
         if (data.data.deletedCount > 0){
-            toast.success('Post delete success')
+            toast.success('Vendor delete success')
             return true
         }
 
