@@ -83,63 +83,56 @@ const SiteHeader = () => {
     return (
         <>
             <div className='container py-4'>
-                <Row gutter={16}>
-                    <Col className="gutter-row" span={6}>
-                        <div >
-                            <Link to='/'>Site Logo</Link>
-                        </div>
-                    </Col>
-                    <Col className="gutter-row" span={12}>
-                        <div >
 
-                        </div>
-                    </Col>
-                    <Col className="gutter-row" span={6}>
-                        <div >
-                            <nav className="navbar navbar-expand-lg">
-                                <div className="container">
+                <div className='d-flex justify-content-between align-items-center'>
+                    <div>
+                        <Link to='/'>Logo</Link>
+                    </div>
+                    <div>
+                        <nav className="navbar navbar-expand-lg">
+                            <div className="container">
 
 
-                                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-                                        <ul className="navbar-nav">
+                                    <ul className="navbar-nav">
 
-                                            {
-                                                token ? <>
-                                                    <li className="nav-item">
+                                        {
+                                            token ? <>
+                                                <li className="nav-item">
 
-                                                        <Dropdown
-                                                            menu={{
-                                                                items,
-                                                            }}
-                                                            className="nav-link"
-                                                        >
-                                                            <a onClick={(e) => e.preventDefault()}>
-                                                                <Space>
-                                                                    <UserOutlined />
-                                                                    Account
-                                                                    <DownOutlined />
-                                                                </Space>
-                                                            </a>
-                                                        </Dropdown>
-                                                    </li>
+                                                    <Dropdown
+                                                        menu={{
+                                                            items,
+                                                        }}
+                                                        className="nav-link"
+                                                    >
+                                                        <a onClick={(e) => e.preventDefault()}>
+                                                            <Space>
+                                                                <UserOutlined/>
+                                                                Account
+                                                                <DownOutlined/>
+                                                            </Space>
+                                                        </a>
+                                                    </Dropdown>
+                                                </li>
 
 
-                                                </> : <>
-                                                    <li className="nav-item">
-                                                        <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
-                                                    </li>
-                                                </>
-                                            }
+                                            </> : <>
+                                                <li className="nav-item">
+                                                    <NavLink className="nav-link" aria-current="page"
+                                                             to="/login">Login</NavLink>
+                                                </li>
+                                            </>
+                                        }
 
-                                        </ul>
+                                    </ul>
 
-                                    </div>
                                 </div>
-                            </nav>
-                        </div>
-                    </Col>
-                </Row>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
 
             </div>
         </>
