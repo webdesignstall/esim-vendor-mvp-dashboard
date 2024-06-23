@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Card, Col, Row} from "antd";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 const HomePage = () => {
@@ -45,7 +46,10 @@ const HomePage = () => {
                                     <h5 className='fw-bold mt-3'>Company: {esimCatalog?.company}</h5>
                                     <h5 className='fw-bold mt-3'>Coverage: { esimCatalog?.coverage }</h5>
                                     <h5 className='fw-bold mt-3'>Country: {esimCatalog?.country}</h5>
-                                    <button className='btn btn-outline-info mt-3'>Online Order</button>
+                                    <Link to={`/online-order/${esimCatalog?._id}`}>
+                                        <button className='btn btn-outline-info mt-3'>Online Order</button>
+                                    </Link>
+
                                 </div>
                             </Card>
                         </Col>

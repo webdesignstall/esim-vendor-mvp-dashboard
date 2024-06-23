@@ -21,6 +21,7 @@ import ESIMCatalog from "../pages/dashboard/ESIMCatalog";
 import ESIM from "../pages/dashboard/ESIM";
 import ESIMOrder from "../pages/dashboard/ESIMOrder";
 import CustomerProfile from "../pages/dashboard/CustomerProfile";
+import Checkout from "../pages/Checkout";
 
 const router = createBrowserRouter([
 
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <HomePage/>
+            },
+            {
+                path: '/online-order/:id',
+                element: <Checkout/>
             },
             {
                 path: '/login',
