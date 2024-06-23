@@ -9,6 +9,7 @@ import VerifyOtpPage from "../pages/auth/VerifyOtpPage";
 import NewPasswordPage from "../pages/auth/NewPasswordPage";
 import PrivateRoute from "./privateRoute";
 import VendorCreatePage from "../pages/admin/vendor/VendorCreatePage";
+import AdminEsimOrder from "../pages/admin/order/ESIMOrder";
 import VendorListPage from "../pages/admin/vendor/VendorListPage";
 import ProfilePage from "../pages/auth/ProfilePage";
 import UpdatePasswordPage from "../pages/auth/UpdatePasswordPage";
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
             {
                 path: '/admin/change-password',
                 element: <UpdatePasswordPage/>
+            },
+            {
+                path: '/admin/order',
+                element: <AdminEsimOrder/>
+            },
+            {
+                path: '/admin/order/customer-profile/:customerId',
+                element: <CustomerProfile/>
             },
         ]
     },
