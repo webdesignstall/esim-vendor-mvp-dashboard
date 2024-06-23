@@ -86,7 +86,9 @@ const SiteHeader = () => {
 
                 <div className='d-flex justify-content-between align-items-center'>
                     <div>
-                        <Link to='/'>Logo</Link>
+                        <Link to='/'>
+                            <img width={'70'} src={`https://www.piratemobile.gg/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FfooterLogo.5edeffdf.png&w=256&q=75`}/>
+                        </Link>
                     </div>
                     <div>
                         <nav className="navbar navbar-expand-lg">
