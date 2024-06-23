@@ -87,7 +87,7 @@ const AppHeader = () => {
                         >
                             <a onClick={(e) => e.preventDefault()}>
                                 <Space>
-                                    {auth?.firstName}
+                                    {auth?.name}
                                     <DownOutlined />
                                 </Space>
                             </a>

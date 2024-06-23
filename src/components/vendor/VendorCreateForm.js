@@ -5,10 +5,12 @@ import {
     Col,
     Form,
     Input,
-    Row
+    Row, Upload
 } from "antd";
 import {useLocation} from "react-router-dom";
 import {getSingleVendor, registerRequest} from "../../APIRequest/userApi";
+
+const {TextArea} = Input;
 
 
 const VendorCreateForm = () => {
@@ -25,8 +27,10 @@ const VendorCreateForm = () => {
             getSingleVendor(vendorId).then(res => {
 
                 form.setFieldsValue({
-                    firstName: res?.vendor?.firstName,
-                    lastName: res?.vendor?.lastName,
+                    name: res?.vendor?.name,
+                    website: res?.vendor?.website,
+                    headOffice: res?.vendor?.headOffice,
+                    contact: res?.vendor?.contact,
                     email: res?.vendor?.email,
                 })
             })
@@ -38,6 +42,7 @@ const VendorCreateForm = () => {
     const onFinish = () => {
 
         const values = form.getFieldsValue();
+
         setIsSubmitting(true)
         registerRequest(values, vendorId).then(res => {
             setIsSubmitting(false)
@@ -67,38 +72,19 @@ const VendorCreateForm = () => {
                     <Col span={18}>
                         <Card title='Vendor'>
 
-                            <Row gutter={16}>
-                                <Col span={12}>
-                                    <Form.Item
-                                        style={{ width: '100%' }}
-                                        label="First Name"
-                                        name="firstName"
-                                        rules={[
-                                            {
-                                                required: true,
-                                                message: 'First Name is required!',
-                                            },
-                                        ]}
-                                    >
-                                        <Input size={'large'} style={{ width: '100%' }} />
-                                    </Form.Item>
-                                </Col>
-                                <Col span={12}>
-                                    <Form.Item
-                                        style={{ width: '100%' }}
-                                        label="Last Name"
-                                        name="lastName"
-                                        rules={[
-                                            {
-                                                required: true,
-                                                message: 'Last Name is required!',
-                                            },
-                                        ]}
-                                    >
-                                        <Input size={'large'} style={{ width: '100%' }} />
-                                    </Form.Item>
-                                </Col>
-                            </Row>
+                            <Form.Item
+                                style={{ width: '100%' }}
+                                label="Vendor Name"
+                                name="name"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Vendor Name is required!',
+                                    },
+                                ]}
+                            >
+                                <Input size={'large'} style={{ width: '100%' }} />
+                            </Form.Item>
 
 
 
@@ -114,6 +100,30 @@ const VendorCreateForm = () => {
                                 ]}
                             >
                                 <Input size={'large'} />
+                            </Form.Item>
+
+                            <Form.Item
+                                style={{ width: '100%' }}
+                                label="Website Url"
+                                name="website"
+                            >
+                                <Input size={'large'} />
+                            </Form.Item>
+
+                            <Form.Item
+                                style={{ width: '100%' }}
+                                label="Contact No"
+                                name="contact"
+                            >
+                                <Input size={'large'} />
+                            </Form.Item>
+
+                            <Form.Item
+                                style={{ width: '100%' }}
+                                label="head office"
+                                name="headOffice"
+                            >
+                                <TextArea size={'large'} ></TextArea>
                             </Form.Item>
 
                             <Form.Item
