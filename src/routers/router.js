@@ -19,6 +19,7 @@ import UserMain from "../layouts/UserMain";
 import ESIMCatalog from "../pages/dashboard/ESIMCatalog";
 import ESIM from "../pages/dashboard/ESIM";
 import ESIMOrder from "../pages/dashboard/ESIMOrder";
+import CustomerProfile from "../pages/dashboard/CustomerProfile";
 
 const router = createBrowserRouter([
 
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
             {
                 path: '/vendor/change-password',
                 element: <UpdatePasswordPage/>
+            },
+            {
+                path: '/vendor/customer-profile/:customerId',
+                element: <CustomerProfile/>
             }
         ]
     },

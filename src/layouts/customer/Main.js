@@ -35,7 +35,7 @@ const Main = () => {
             label:  <NavLink to='/'>Home</NavLink>,
         },
         {
-            key: '1',
+            key: '6',
             label:  <NavLink to='/vendor'>Dashboard</NavLink>,
         },
 
