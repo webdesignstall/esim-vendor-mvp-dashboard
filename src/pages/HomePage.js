@@ -19,7 +19,7 @@ const HomePage = () => {
 
 
     return (
-        <div className="container">
+        <div className="container py-5">
             <Row gutter={[32, 32]} className='d-flex justify-content-center'>
 
                 {

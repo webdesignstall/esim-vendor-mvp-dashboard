@@ -57,15 +57,18 @@ const VendorEsimList = () => {
                             <Col span={12} style={{marginBottom: '20px', borderBottom: '1px solid gray'}}>
                                 <p style={{fontSize: '1rem', fontWeight: 'bold'}}>Operator Specific Data</p>
 
-                                    <p><span style={{fontWeight: 'bold'}}>APN:</span> {record?.operatorSpecificData?.apn}</p>
-                                    <p><span style={{fontWeight: 'bold'}}>MNC:</span> {record?.operatorSpecificData?.mnc}</p>
+                                <p style={{fontWeight: 'bold'}}>APN: <span style={{color: 'orange', fontSize: '1.1rem'}}> {record?.operatorSpecificData?.apn}</span></p>
+                                <p style={{fontWeight: 'bold'}}>Network Selection Mode:  <span
+                                    style={{color: 'orange', fontSize: '1.1rem'}}>  {record?.operatorSpecificData?.settings?.networkSelectionMode} </span>
+                                </p>
 
                             </Col>
                             <Col span={12} style={{marginBottom: '20px', borderBottom: '1px solid gray'}}>
                                 <p style={{fontSize: '1rem', fontWeight: 'bold'}}>Cryptographic Information</p>
 
-                                    <p><span style={{fontWeight: 'bold'}}>Public Key:</span> {record?.cryptographicInformation?.publicKey}</p>
-                                    <p><span style={{fontWeight: 'bold'}}>Private Key:</span> {record?.cryptographicInformation?.privateKey}</p>
+                                <p  style={{fontWeight: 'bold'}}>Security Key:<span style={{color: 'orange', fontSize: '1.1rem'}}> {record?.cryptographicInformation?.securityKeys} </span></p>
+
+                                <p style={{fontWeight: 'bold'}}> Certificate: <span style={{color: 'orange', fontSize: '1.1rem'}}> {record?.cryptographicInformation?.certificates} </span></p>
 
                             </Col>
                             <Col span={12}>
@@ -75,25 +78,24 @@ const VendorEsimList = () => {
                                     <span style={{fontWeight: 'bold'}}>Preferred Networks:</span>
                                     {
                                         record?.networksAndRoamingPreferences?.preferredNetworks?.map(item => (
-                                            <p>{ item }</p>
+                                            <span style={{color: 'orange', fontSize: '1.1rem'}}> { item },</span>
                                         ))
                                     }
                                 </p>
-                                <p><span style={{fontWeight: 'bold'}}>Roaming Setting Roaming Allowed:</span> <p> { record?.networksAndRoamingPreferences?.roamingSettings?.roamingAllowed } </p>
-                                </p>
 
-                                <p><span style={{fontWeight: 'bold'}}>Roaming Setting Roaming Cost:</span> <p> { record?.networksAndRoamingPreferences?.roamingSettings?.roamingCost } </p>
+                                <p><span style={{fontWeight: 'bold'}}>Roaming:</span> <span> <span style={{color: 'orange', fontSize: '1.1rem'}}> { record?.networksAndRoamingPreferences?.roaming } </span> </span>
                                 </p>
 
                             </Col>
                             <Col span={12}>
+
                                 <p style={{fontSize: '1rem', fontWeight: 'bold'}}>Subscription Information</p>
 
-                                <p><span style={{fontWeight: 'bold'}}>Data Allowances:</span> <p> { record?.subscriptionInformation?.dataAllowances } </p>
-                                </p>
+                                <p><span style={{fontWeight: 'bold'}}>Plan:</span> <span style={{color: 'orange', fontSize: '1.1rem'}}> { record?.subscriptionInformation?.plan } </span> </p>
+                                <p><span style={{fontWeight: 'bold'}}>Data Allowance:</span> <span style={{color: 'orange', fontSize: '1.1rem'}}> { record?.subscriptionInformation?.dataAllowance } </span> </p>
 
-                                <p><span style={{fontWeight: 'bold'}}>Voice Minute Quotas:</span> <p> { record?.subscriptionInformation?.voiceMinuteQuotas } </p>
-                                </p>
+                                <p><span style={{fontWeight: 'bold'}}>Voice Minutes:</span> <span style={{color: 'orange', fontSize: '1.1rem'}}> { record?.subscriptionInformation?.voiceMinutes } </span>  </p>
+                                <p><span style={{fontWeight: 'bold'}}>sms:</span> <span style={{color: 'orange', fontSize: '1.1rem'}}> { record?.subscriptionInformation?.sms } </span>   </p>
 
                             </Col>
                         </Row>
